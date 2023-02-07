@@ -1,0 +1,7 @@
+body, 
+html,
+* {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: rgb(98, 169, 240);
+}
