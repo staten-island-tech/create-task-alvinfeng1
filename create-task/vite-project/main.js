@@ -1,4 +1,4 @@
-async function quotes() {
+async function quote() {
   try {
     const response = await fetch("https://api.quotable.io/random");
     const quotes = await response.json();
@@ -30,4 +30,4 @@ async function quotes() {
   }
 }
 
-quotes();
+quote();
