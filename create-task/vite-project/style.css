@@ -19,3 +19,23 @@ html,
   border: 5px solid rgb(48, 101, 215);
   border-radius: 5px;
 }
+
+.search-container {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.search-bar {
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-btn {
+  background-color: #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+

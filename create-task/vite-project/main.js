@@ -1,12 +1,12 @@
 async function quote() {
   try {
     const response = await fetch("https://api.quotable.io/random");
-    const quotesdata = await response.json();
+    const quotes = await response.json();
     if (response.status < 200 || response.status > 299) {
       console.log("good");
     }
-    const quotes = quotesdata;
     console.log(quotes);
+    window.quote = quote;
     displayquotes(quotes);
   } catch (error) {
     console.log(error);
@@ -37,7 +37,7 @@ function shortquotes(quotes) {
   container.innerHTML = "";
   quotes.forEach((quotes) => {
     let author = quotes.author;
-    let quote = quotes.content.length < 60;
+    let quote = quotes.content.length < 70;
     const card = container.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
@@ -55,7 +55,7 @@ function longquotes(quotes) {
   container.innerHTML = "";
   quotes.forEach((quotes) => {
     let author = quotes.author;
-    let quote = quotes.content.length > 60;
+    let quote = quotes.content.length > 70;
     const card = container.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
@@ -67,5 +67,21 @@ function longquotes(quotes) {
     );
   });
 }
+
+function filterquotesByName(quotes, author) {
+  displayAmiibos(
+    quotes.filter((quote) =>
+      quote.author.toLowerCase().includes(author.toLowerCase())
+    )
+  );
+}
+
+const searchBar = document.querySelector(".search-bar");
+const searchButton = document.querySelector(".search-btn");
+searchButton.addEventListener("click", () => {
+  const searchTerm = searchBar.value;
+  filterquotesByName(quote, searchTerm);
+  event.preventDefault();
+});
 
 quote();
