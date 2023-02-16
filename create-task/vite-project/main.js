@@ -6,7 +6,6 @@ async function quote() {
       console.log("good");
     }
     console.log(quotes);
-    window.quote = quote;
     displayquotes(quotes);
   } catch (error) {
     console.log(error);
@@ -23,47 +22,12 @@ function displayquotes(quotes) {
     const card = container.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
-        <h2>Quote: ${quote}</h2>
-        <p>Author: ${author}</p>
+        <h2>Quote: "${quote}"</h2>
+        <p>Author: "${author}"</p>
         <p></p>
         </div>
-      `
-    );
-  });
-}
-
-function shortquotes(quotes) {
-  const container = document.querySelector(".container");
-  container.innerHTML = "";
-  quotes.forEach((quotes) => {
-    let author = quotes.author;
-    let quote = quotes.content.length < 70;
-    const card = container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-        <h2>Quote: ${quote}</h2>
-        <p>Author: ${author}</p>
-        <p></p>
-        </div>
-      `
-    );
-  });
-}
-
-function longquotes(quotes) {
-  const container = document.querySelector(".container");
-  container.innerHTML = "";
-  quotes.forEach((quotes) => {
-    let author = quotes.author;
-    let quote = quotes.content.length > 70;
-    const card = container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-        <h2>Quote: ${quote}</h2>
-        <p>Author: ${author}</p>
-        <p></p>
-        </div>
-      `
+      `,
+      history.push(displayquotes)
     );
   });
 }
