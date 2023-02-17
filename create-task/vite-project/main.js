@@ -27,11 +27,11 @@ function displayquotes(quotes) {
         <p></p>
         </div>
       `,
-      history.push(displayquotes)
+      console.log(displayquotes)
     );
   });
 }
-
+//idea: console.log the quote generated (short or long) and then display it on the side in a list i can scorl through and serach through
 function filterquotesByName(quotes, author) {
   displayAmiibos(
     quotes.filter((quote) =>

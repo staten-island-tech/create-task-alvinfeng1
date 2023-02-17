@@ -39,3 +39,10 @@ html,
   margin-left: 10px;
 }
 
+.serach-container {
+  justify-content: right;
+  width: 25%;
+  background-color: black;
+  border: 3px white;
+}
+
