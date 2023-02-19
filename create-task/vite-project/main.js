@@ -1,51 +1,46 @@
-async function quote() {
-  try {
-    const response = await fetch("https://api.quotable.io/random");
-    const quotes = await response.json();
-    if (response.status < 200 || response.status > 299) {
-      console.log("good");
+const quoteApiUrl = 'https://api.quotable.io/random';
+let previousQuotes = [];
+
+const getQuote = async (maxLength) => {
+  let quote = null;
+  while (!quote) {
+    const response = await fetch(quoteApiUrl);
+    const data = await response.json();
+    if (data.content.length <= maxLength && !previousQuotes.includes(data.content)) {
+      quote = data.content;
     }
-    console.log(quotes);
-    displayquotes(quotes);
-  } catch (error) {
-    console.log(error);
-    console.log("big poo");
   }
-}
+  previousQuotes.push(quote);
+  displayQuote(quote);
+};
 
-function displayquotes(quotes) {
-  const container = document.querySelector(".container");
-  container.innerHTML = "";
-  quotes.forEach((quotes) => {
-    let author = quotes.author;
-    let quote = quotes.content;
-    const card = container.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-        <h2>Quote: "${quote}"</h2>
-        <p>Author: "${author}"</p>
-        <p></p>
-        </div>
-      `,
-      console.log(displayquotes)
-    );
-  });
-}
-//idea: console.log the quote generated (short or long) and then display it on the side in a list i can scorl through and serach through
-function filterquotesByName(quotes, author) {
-  displayAmiibos(
-    quotes.filter((quote) =>
-      quote.author.toLowerCase().includes(author.toLowerCase())
-    )
-  );
-}
+const displayQuote = (quote) => {
+  const quoteElement = document.getElementById('quote');
+  quoteElement.innerText = quote;
+  const quoteList = document.getElementById('quote-list');
+  const listItem = document.createElement('li');
+  listItem.innerText = quote;
+  quoteList.appendChild(listItem);
+};
 
-const searchBar = document.querySelector(".search-bar");
-const searchButton = document.querySelector(".search-btn");
-searchButton.addEventListener("click", () => {
-  const searchTerm = searchBar.value;
-  filterquotesByName(quote, searchTerm);
-  event.preventDefault();
+document.getElementById('short-button').addEventListener('click', () => {
+  getQuote(60);
 });
 
-quote();
+document.getElementById('long-button').addEventListener('click', () => {
+  getQuote(1000);
+});
+
+document.getElementById('search').addEventListener('input', () => {
+  const query = document.getElementById('search').value.toLowerCase();
+  const quoteList = document.getElementById('quote-list');
+  const quotes = quoteList.getElementsByTagName('li');
+  for (let i = 0; i < quotes.length; i++) {
+    const quote = quotes[i].innerText.toLowerCase();
+    if (quote.includes(query)) {
+      quotes[i].style.display = '';
+    } else {
+      quotes[i].style.display = 'none';
+    }
+  }
+});

@@ -16,22 +16,16 @@
   </head>
   <body>
     <h1>Random Quote Generator</h1>
-    <button class="shortquotes">Search Short Quotes</button>
-    <button class="longquotes">Search Long Quotes</button>
-    <div class="search-container">
-      <form action="search">
-        <label id="searchLabel" for="search">enter text</label>
-        <input
-          id="search"
-          type="text"
-          class="search-bar"
-          placeholder="Search Quote Author..."
-        />
-        <button class="search-btn">Search</button>
-      </form>
-    </div>
-    <div class="serach-container"></div>
-    <div class="container"></div>
+    <button class="short-button">Short Quote</button>
+    <button class="long-button">Long Quote</button>
+    <p id="quote"></p>
+  
+  <h2>Previously Generated Quotes</h2>
+  
+  <ul id="quote-list"></ul>
+  
+  <input type="text" id="search" placeholder="Search quotes...">
+  
     <script type="module" src="main.js"></script>
   </body>
 </html>
