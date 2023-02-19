@@ -2,32 +2,83 @@ body,
 html,
 * {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: rgb(98, 169, 240);
+  background: linear-gradient(to bottom, #0d40b8, #182848);
 }
 
 h1, h2 {
   text-align: center;
+  color: white;
+  margin-top: 50px;
 }
 
 button {
-  margin: 10px;
-  padding: 5px 10px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #f4511e;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
+  color: white;
   cursor: pointer;
+  display: block;
+  font-size: 18px;
+  margin: 0 auto 30px;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
 }
 
 button:hover {
-  background-color: #3e8e41;
+  background-color: #e65522;
 }
 
 p {
   font-size: 24px;
   text-align: center;
   margin-top: 30px;
+}
+
+.quote-list {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 30px;
+}
+
+.quote-list-item {
+  border-bottom: 1px solid #cccccc;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.quote-list-item:last-child {
+  border-bottom: none;
+}
+
+.quote-list-item span {
+  color: #f4511e;
+  font-style: italic;
+}
+
+.search-bar {
+  background-color: #ffffff;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  margin: 50px auto;
+  max-width: 400px;
+  padding: 12px 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 ul {
