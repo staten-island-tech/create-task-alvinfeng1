@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   color: #333;
   margin-top: 50px;
@@ -88,6 +88,7 @@ button:hover {
   text-align: center;
   width: 100%;
   transition: all 0.3s ease;
+  margin-left: 520px;
 }
 
 #search:focus {
