@@ -3,23 +3,27 @@ let previousQuotes = [];
 
 const getQuote = async (maxLength) => {
   let quote = null;
+  let author = null;
   while (!quote) {
     const response = await fetch(quoteApiUrl);
     const data = await response.json();
     if (data.content.length <= maxLength && !previousQuotes.includes(data.content)) {
       quote = data.content;
+      author = data.author;
     }
   }
   previousQuotes.push(quote);
-  displayQuote(quote);
+  displayQuote(quote, author);
 };
 
-const displayQuote = (quote) => {
+const displayQuote = (quote, author) => {
   const quoteElement = document.getElementById('quote');
   quoteElement.innerText = quote;
+  const authorElement = document.getElementById('author');
+  authorElement.innerText = author;
   const quoteList = document.getElementById('quote-list');
   const listItem = document.createElement('li');
-  listItem.innerText = quote;
+  listItem.innerText = `${quote} - ${author}`;
   quoteList.appendChild(listItem);
 };
 
