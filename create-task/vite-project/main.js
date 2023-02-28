@@ -15,7 +15,6 @@ const getQuote = async (maxLength) => {
       author = data.author;
     }
   }
-  previousQuotes.push(quote);
   displayQuote(quote, author);
 };
 
