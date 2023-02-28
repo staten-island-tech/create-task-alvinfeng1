@@ -76,6 +76,11 @@ button:hover {
   font-style: italic;
 }
 
+#box {
+  width: 100%;
+  text-align:center;
+}
+
 #search {
   background-color: #f5f5f5;
   border-radius: 25px;
@@ -85,7 +90,6 @@ button:hover {
   margin: 50px auto;
   max-width: 400px;
   padding: 14px 28px;
-  margin-left: 675px;
   text-align: center;
   width: 100%;
   transition: all 0.3s ease;
@@ -95,7 +99,4 @@ button:hover {
   outline: none;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   background-color: #fff;
-}
-#label {
-  opacity: 0%;
 }
